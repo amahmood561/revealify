@@ -36,34 +36,32 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-2 py-8 w-full">
-      <div className="w-full max-w-lg mx-auto flex flex-col items-center">
+    <main className="w-full min-h-screen flex items-center justify-center py-8 px-2">
+      <div className="w-full max-w-sm flex flex-col items-center justify-center bg-white/90 shadow-2xl rounded-2xl p-6 md:p-8 backdrop-blur-md">
         <h1 className="text-4xl font-extrabold mb-2 text-center text-blue-800 tracking-tight drop-shadow-sm">Revealify</h1>
         <p className="mb-6 text-center text-gray-600 max-w-md">Paste a short link to instantly expand and preview its destination. Stay safe and informed!</p>
-        <div className="w-full max-w-md mb-8">
-          <form onSubmit={handleExpand} className="bg-white shadow-lg rounded-xl px-4 py-3 flex items-center gap-2">
-            <input
-              className="border border-gray-200 rounded-lg px-3 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-400 transition text-base"
-              placeholder="Paste a short link (bit.ly, t.co, etc.)"
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              required
-              aria-label="Short link input"
-              style={{ minWidth: 0 }}
-            />
-            <button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold shadow disabled:opacity-50 transition whitespace-nowrap"
-              disabled={loading}
-              aria-busy={loading}
-            >
-              {loading ? "Expanding..." : "Expand"}
-            </button>
-          </form>
-        </div>
+        <form onSubmit={handleExpand} className="flex flex-col sm:flex-row items-center gap-2 mb-6 justify-center w-full">
+          <input
+            className="border border-blue-200 rounded-lg px-3 py-2 max-w-[220px] focus:outline-none focus:ring-2 focus:ring-blue-400 transition text-base bg-white/90 shadow-sm text-center"
+            placeholder="Paste a short link (bit.ly, t.co, etc.)"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            required
+            aria-label="Short link input"
+            style={{ minWidth: 0 }}
+          />
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white px-5 py-2 rounded-lg font-semibold shadow-lg disabled:opacity-50 transition whitespace-nowrap w-full sm:w-auto max-w-[120px]"
+            disabled={loading}
+            aria-busy={loading}
+          >
+            {loading ? "Expanding..." : "Expand"}
+          </button>
+        </form>
         {error && <div className="text-red-600 mb-4 w-full text-center">{error}</div>}
         {meta && (
-          <div className="bg-white shadow-2xl rounded-2xl p-7 w-full max-w-md mb-10 flex flex-col items-center animate-fade-in border border-blue-100">
+          <div className="bg-white shadow-xl rounded-xl p-6 w-full mb-8 flex flex-col items-center animate-fade-in border border-blue-100">
             <div className="flex items-center gap-3 mb-3">
               <img src={meta.favicon} alt="favicon" className="w-8 h-8 rounded shadow" />
               <span className="font-bold text-xl text-gray-900 tracking-tight">{meta.title}</span>

@@ -15,8 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex items-center justify-center min-h-screen w-full min-w-0">
-          {children}
+        <div className="flex items-center justify-center min-h-screen w-full min-w-0 px-2">
+          <div className="w-full max-w-xl flex flex-col items-center justify-center">
+            {children}
+          </div>
         </div>
       </body>
     </html>
