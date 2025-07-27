@@ -41,23 +41,25 @@ export default function Home() {
         <h1 className="text-4xl font-extrabold mb-2 text-center text-blue-800 tracking-tight drop-shadow-sm">Revealify</h1>
         <p className="mb-6 text-center text-gray-600 max-w-md">Paste a short link to instantly expand and preview its destination. Stay safe and informed!</p>
         <form onSubmit={handleExpand} className="flex flex-col sm:flex-row items-center gap-2 mb-6 justify-center w-full">
-          <input
-            className="border border-blue-200 rounded-lg px-3 py-2 max-w-[220px] focus:outline-none focus:ring-2 focus:ring-blue-400 transition text-base bg-white/90 shadow-sm text-center"
-            placeholder="Paste a short link (bit.ly, t.co, etc.)"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            required
-            aria-label="Short link input"
-            style={{ minWidth: 0 }}
-          />
-          <button
-            type="submit"
-            className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white px-5 py-2 rounded-lg font-semibold shadow-lg disabled:opacity-50 transition whitespace-nowrap w-full sm:w-auto max-w-[120px]"
-            disabled={loading}
-            aria-busy={loading}
-          >
-            {loading ? "Expanding..." : "Expand"}
-          </button>
+          <div className="flex w-full sm:w-auto flex-col sm:flex-row items-center gap-2">
+            <input
+              className="border border-blue-200 rounded-full px-5 py-2 max-w-[240px] focus:outline-none focus:ring-2 focus:ring-blue-400 transition text-base bg-white/95 shadow-sm text-center placeholder-gray-400 font-medium sm:rounded-full sm:rounded-r-none sm:border-r-0 sm:shadow-none sm:bg-white"
+              placeholder="Paste a short link (bit.ly, t.co, etc.)"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              required
+              aria-label="Short link input"
+              style={{ minWidth: 0 }}
+            />
+            <button
+              type="submit"
+              className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white px-6 py-2 rounded-full font-semibold shadow-md disabled:opacity-50 transition whitespace-nowrap w-full sm:w-auto max-w-[120px] sm:rounded-full sm:rounded-l-none sm:shadow-lg sm:-ml-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              disabled={loading}
+              aria-busy={loading}
+            >
+              {loading ? "Expanding..." : "Expand"}
+            </button>
+          </div>
         </form>
         {error && <div className="text-red-600 mb-4 w-full text-center">{error}</div>}
         {meta && (
