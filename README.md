@@ -35,3 +35,6 @@ This MVP is session-based and does not persist data after server restart. For pr
 This directory contains example API routes for the headless API app.
 
 For more details, see [route.js file convention](https://nextjs.org/docs/app/api-reference/file-conventions/route).
+
+<img width="1699" height="970" alt="image" src="https://github.com/user-attachments/assets/9fa1bc6f-dae0-405d-8c45-bd9dba0a2d66" />
+
